@@ -198,10 +198,11 @@ nav #right button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 0.95rem;
+  display:none;
 }
 nav #right i {
   /* hide icon on small screens by default */
-  display: none;
+  display: block;
   font-size: 1.5rem;
   color: #fff;
   cursor: pointer;
@@ -214,9 +215,12 @@ nav #right i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1.8rem;
-  margin-top: -4rem; /* kept negative top if you need overlap, reduce for mobile */
+  /* padding: 2rem 1.8rem; */
+ padding-left: 2rem;
+padding-right: 2rem;
+ margin-top: -12rem; /* kept negative top if you need overlap, reduce for mobile */
   text-align: center;
+  gap: 1rem;
 }
 
 #hero h2 {
@@ -241,6 +245,8 @@ nav #right i {
   max-width: 420px;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .search input {
   padding: 0.6rem 0.9rem;
@@ -268,11 +274,44 @@ nav #left h1 small {
   color: #ddd;
 }
 
+#results {
+  display: flex;
+gap: 28px;
+align-items: center;
+flex-wrap: nowrap;
+flex-direction: column;
+padding: 4rem;
+margin-top: -22rem;
+padding-left: 3rem;
+ 
+}
+#results #poster img{
+   width: 200px;
+   aspect-ratio: 2/3;
+   display: block;
+   object-fit: cover;
+   border-radius: 6px;
+}
+
+.details-info{
+    color: #fff;
+    margin-left: 1rem;
+}
+.details-info h2{
+    margin-bottom: 1rem;
+}
+.details-info p{
+    margin-bottom: 0.5rem;  
+    font-size: 1rem;
+}
+
+
 /* ---------- Laptop / larger screens (overrides) ---------- */
 /* Use a laptop breakpoint; change 1024px to your preferred breakpoint if needed */
 @media (min-width: 1024px) {
   main {
     height: 100vh;
+     background-color: rgb(30, 26, 21) ;
   }
 
   /* nav: keep the same background but adjust spacing and hide mobile buttons */
@@ -337,5 +376,38 @@ nav #left h1 small {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
+  #results {
+  display: flex;
+gap: 3rem;
+align-items: center;
+justify-content: center;
+flex-wrap: nowrap;
+flex-direction: row;
+padding: 4rem;
+margin-top: -15rem;
+padding-left: 3rem;
+ background-color: rgb(30, 26, 21) ;
+ 
 }
+#results #poster img{
+   width: 350px;
+   aspect-ratio: 2/3;
+   display: block;
+   object-fit: cover;
+   border-radius: 6px;
+}
+#results .details-info{
+    color: #fff;
+    margin-left: 2rem;
+    margin-top: -19rem;
 
+}
+#results .details-info h2{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+#results .details-info p{
+    /* margin-bottom: 0.5rem;  
+    font-size: 2rem; */
+}
+}
