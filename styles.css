@@ -322,6 +322,7 @@ border-radius: 0.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   margin-top: -18rem;
+  /* display: none; */
 }
 
 #results #poster img {
@@ -363,6 +364,10 @@ border-radius: 0.5rem;
 
 .details-info span {
   color: #000;
+}
+#statusMessage{
+  width: 100%;
+  text-align: center;
 }
 
 
@@ -430,6 +435,7 @@ border-radius: 0.5rem;
     gap: 1rem;
     max-width: 700px;
     justify-content: center;
+    flex-direction: row;
   }
   .search input {
     width: 300px;
@@ -440,6 +446,10 @@ border-radius: 0.5rem;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
   }
+  #statusMessage{
+  width: 100%;
+  text-align: center;
+}
   #results {
   display: flex;
 gap: 3rem;
@@ -453,11 +463,17 @@ padding-left: 1rem;
  background-color: rgb(229, 224, 217) ;
  margin-left: 8rem;
  margin-right: 8rem;
+ /* display: none; */
  
 }
+#results #poster{
+    width: 400px;
+    
+}
 #results #poster img{
-   width: 100%;
-    max-width: 450px; 
+   /* width: 100%; */
+    max-width:600px; 
+    height: auto;
    aspect-ratio: 2/3;
    display: block;
    object-fit: cover;
@@ -466,7 +482,7 @@ padding-left: 1rem;
 #results .details-info{
     color: #fff;
     margin-left: 2rem;
-    margin-top: -2rem;
+    padding-top: 3rem;
     white-space: nowrap;
 
 }
