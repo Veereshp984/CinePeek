@@ -159,17 +159,24 @@ body {
 main {
 height: 100vh;
   background-color: rgb(30, 26, 21);
+  /* background-image: url(https://i.pinimg.com/736x/1e/63/04/1e630435baf55a80693972108729bdfc.jpg); */
+  /* background-image: url(https://i.pinimg.com/1200x/3d/31/ef/3d31ef975700b3d9c15bbc30f46be45a.jpg); */
+ /* background-image:url( https://i.pinimg.com/736x/19/28/ee/1928ee43ab135ef80177999df7fd1b1d.jpg); */
+ background-image: url(https://i.pinimg.com/736x/87/87/3a/87873affc0ec3b778a55dacd7c3d5402.jpg);
+  background-position: center;
+  
 }
 
 /* NAV - mobile layout (stacked/flexible) */
 nav {
-  background-color: #333;
+  background-color: #6d6969;
   color: #fff;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+ 
 }
 
 /* left side of nav (logo/title) */
@@ -368,8 +375,11 @@ border-radius: 0.5rem;
 #statusMessage{
   width: 100%;
   text-align: center;
+   display: none;
 }
-
+#results.hidden{
+  display: none;
+}
 
 /* ---------- Laptop / larger screens (overrides) ---------- */
 /* Use a laptop breakpoint; change 1024px to your preferred breakpoint if needed */
@@ -380,7 +390,16 @@ border-radius: 0.5rem;
   }
   main {
     height: 100vh;
+    margin: 0;
+    width: 100vw;
      background-color: rgb(30, 26, 21) ;
+    /* background-image: url(https://i.pinimg.com/736x/07/b1/3b/07b13b23ac35417490c0cad6fb936c1a.jpg); */
+     /* background-image: url(https://i.pinimg.com/736x/a7/e8/53/a7e8530bc671adf52f9af0519d15d618.jpg); */
+     background-image: url(https://i.pinimg.com/736x/07/b1/3b/07b13b23ac35417490c0cad6fb936c1a.jpg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     /* background-attachment: fixed ; */
   }
 
   /* nav: keep the same background but adjust spacing and hide mobile buttons */
@@ -449,7 +468,9 @@ border-radius: 0.5rem;
   #statusMessage{
   width: 100%;
   text-align: center;
+  display: none;
 }
+
   #results {
   display: flex;
 gap: 3rem;
@@ -465,6 +486,9 @@ padding-left: 1rem;
  margin-right: 8rem;
  /* display: none; */
  
+}
+#results.hidden{
+  display: none;
 }
 #results #poster{
     width: 400px;

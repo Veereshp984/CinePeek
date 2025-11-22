@@ -2,46 +2,33 @@ let search = document.querySelector('.search input');
 let btn = document.querySelector('#searchBtn');
 let poster = document.querySelector('#poster img');
 let title = document.querySelector('#detail-title');
-console.log(title);
+// console.log(title);
 
 let year = document.querySelector('#detail-released');
-console.log(year);
+// console.log(year);
 
 let runtime = document.querySelector('#detail-runtime');
-console.log(runtime);
+// console.log(runtime);
 let genre = document.querySelector('#detail-genre');
-console.log(genre);
+// console.log(genre);
 let director = document.querySelector('#detail-director');
-console.log(director);
+// console.log(director);
 let language = document.querySelector('#detail-language');
-console.log(language);
+// console.log(language);
 let rating = document.querySelector('#detail-rating');
-console.log(rating);
-
-// fakeMovie = {
-//   Title: "Interstellar",
-//   Released: "07 Nov 2014",
-//   Runtime: "169 min",
-//   Genre: "Adventure, Drama, Sci-Fi",
-//   Director: "Christopher Nolan",
-//   Language: "English",
-//   imdbRating: "8.6",
-//   Poster: "https://resizing.flixster.com/7c3qnZfPzZgID7Ft97PccFwEf9U=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10543523_p_v8_as.jpg"
-// }
-const handleSearch = ()=>{
-search.addEventListener('keyup',(dets)=>{
-if(dets.key === "Enter"){
-    console.log(dets.target.value);
-    
-}
-    // if(search.value === " "){
-    //     statusMessage.innerText="Enter the movie name properly";
-    // }else if(search.value.trim().length> 0){
-    //     statusMessage.innerText="Seaching...";
-    //     fetchMovieBytitle()
-    // }
-});}
-handleSearch();
+// console.log(rating);
+let statusMessage = document.querySelector('#statusMessage');
+let resultSection = document.querySelector('#results');
+btn.addEventListener('click',()=>{
+    let titleText = search.value.trim();
+    if(titleText.length === 0){
+        statusMessage.innertext = "enter the movie name properly";
+        statusMessage.style.display = "block";
+    }else{
+        statusMessage.innertext = "Searching...";
+          getMovie(titleText);
+    }
+})
 const updateMovieDetails = (movie)=>{
     title.innerText = movie.Title;
     year.innerText = movie.Released;
@@ -52,7 +39,27 @@ const updateMovieDetails = (movie)=>{
     rating.innerText = movie.imdbRating;
     poster.src = movie.Poster;
 };
-// updateMovieDetails(fakeMovie);
+
+const getMovie = async (titleText)=> {
+    try {
+        const response = await fetch(`https://www.omdbapi.com/?t=${titleText}&apikey=cc66c655`);
+        const data = await response.json();
+        if(data.Response ==="True"){
+            statusMessage.style.innerText = "Searching..."
+            document.querySelector("#results").classList.remove("hidden");
+              updateMovieDetails(data);
+              resultSection.classList.remove('hidden');
+        }else{
+            statusMessage.innerText = `No movie found for ${titleText} `;
+            statusMessage.style.display = "block";
+            resultSection.classList.add('hidden');
+        }
+       } catch(error){
+        console.error("error :", error);
+       }
+}
+
+
 
 
 
