@@ -385,11 +385,12 @@ border-radius: 0.5rem;
 /* Use a laptop breakpoint; change 1024px to your preferred breakpoint if needed */
 @media (min-width: 1024px) {
   html,body{
+    min-height: 100vh;
       background-color: rgb(30, 26, 21) ;
       font-size: 18px;
   }
   main {
-    height: 100vh;
+    /* min-height: 100vh; */
     margin: 0;
     width: 100vw;
      background-color: rgb(30, 26, 21) ;
